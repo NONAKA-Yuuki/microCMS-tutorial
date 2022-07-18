@@ -47,32 +47,6 @@
     }
 }
 
-.link {
-    /*
-    overflow: hidden;
-    display: block;
-    position: relative;
-    width: 780px;
-    height: 0;
-    padding-top: 61.4%;
-    background-color: #000;
-    @include mq('tab') {
-        width: 80vw;
-        min-width: 270px;
-        margin: 0 14px;
-    }
-    @include mq('sp') {
-        width: 84vw;
-        margin: 0 6px;
-    }
-    &:hover {
-        .item__fig {
-            opacity: .5;
-        }
-    }
-    */
-}
-
 .thum {
     position: absolute;
     object-fit: cover;
