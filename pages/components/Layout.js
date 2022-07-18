@@ -11,8 +11,8 @@ export default function Layout({ children, home }) {
         <>
             <Header />
             <main className={styles.main}>
-                {home && (
-                    <Slider />
+                {!home && (
+                    <p>ここはtopページじゃないよ</p>
                 )}
                 {children}
             </main>
