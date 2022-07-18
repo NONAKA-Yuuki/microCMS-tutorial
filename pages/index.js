@@ -1,19 +1,22 @@
 import Link from "next/link";
 import { client } from "../libs/client";
+import Layout from "./components/Layout";
 
 export default function Home({ blog }) {
   return (
-    <div>
-      <ul>
-        {blog.map((blog) => (
-          <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>
-              <a>{blog.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Layout home>
+      <div>
+        <ul>
+          {blog.map((blog) => (
+            <li key={blog.id}>
+              <Link href={`/blog/${blog.id}`}>
+                <a>{blog.title}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Layout>
   );
 }
 
