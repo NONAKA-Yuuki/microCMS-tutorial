@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "NotoSansJP";
+  src: url("../public/fonts/NotoSansJP/NotoSansJP-Regular.woff2") format('woff2'),
+       url("../public/fonts/NotoSansJP/NotoSansJP-Regular.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NotoSansJP";
+  src: url("../public/fonts/NotoSansJP/NotoSansJP-Bold.woff2") format('woff2'),
+       url("../public/fonts/NotoSansJP/NotoSansJP-Bold.woff") format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+:root {
+  --main-color: #ba0c2f;
+  --font-color: #333;
+}
+
+
+// often used color
+$main: #ba0c2f;
+
+$main_color: #333;
+$b_1: #4d5156;
+$b_2: #3c4043;
+$bright: #F0F0F0;
+
+body {
+    color: var(--font-color);
+    font-family: 'NotoSansJP', sans-serif;
+}
