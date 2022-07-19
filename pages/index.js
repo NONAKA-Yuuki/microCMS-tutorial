@@ -1,43 +1,36 @@
+import React from "react";
 import Link from "next/link";
+
+import Slider from "react-slick";
+
 import { client } from "../libs/client";
 import Layout from "./components/Layout";
 
 import styles from "../styles/components/slider.module.scss"
-import { Autoplay, Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+
 
 export default function Home({ blog }) {
+
+  const settings = {
+    centerMode: true,
+    variableWidth: true,
+    autoplay: true,
+    arrows: false,
+    dots: true,
+  };
+  
   return (
     <Layout home>
       <div className={styles.slider}>
           <div className={styles.body}>
             <div className={styles.container}>
-              <Swiper
-                modules={[Autoplay, Navigation, Pagination]}
-                slidesPerView={"auto"}
-                //centeredSlides={true}
-                spaceBetween={40}
-                navigation={true}
-                pagination={{ clickable: true }}
-                speed={500}
-                loop={true}
-                loopAdditionalSlides={3}
-                autoplay={{
-                  delay: 1000,
-                  disableOnInteraction: true,
-                }}
-                className={styles.conatiner}
-              >
+              <Slider {...settings}>
                 {blog.map((blog) => {
                   return (
-                    <SwiperSlide key={blog.id}>
                       <article className={styles.item}>
                         <Link href={`/blog/${blog.id}`}>
-                          <a>
-                            <img className={styles.thum} src={blog.thumnail.url} alt="" />
+                          <a className={styles.link}>
+                          <div className={styles.thumnail} style={{backgroundImage: `url(${blog.thumnail.url})` }}></div>
                             <div className={styles.details}>
                               <p class={styles.cat}>カテゴリ名</p>
                               <h2 className={styles.title}>{blog.title}</h2>
@@ -46,10 +39,9 @@ export default function Home({ blog }) {
                           </a>
                         </Link>
                       </article>
-                    </SwiperSlide>
                   )
                 })}
-              </Swiper>
+              </Slider>
             </div>
           </div>
       </div>

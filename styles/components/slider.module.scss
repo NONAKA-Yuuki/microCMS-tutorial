@@ -1,5 +1,6 @@
 @import '../variables.scss';
 
+
 .slider {
     position: relative;
     margin-bottom: 70px;
@@ -38,23 +39,24 @@
 }
 
 .item {
+    display: inline-block;
+    overflow: hidden;
     position: relative;
-    width: 780px;
-    height: 480px;
-    background-color: #000;
     &:hover {
-        opacity: .5;
+        .thumnail {
+            opacity: .5;
+        }
     }
 }
 
 .link {
-    /*
     overflow: hidden;
     display: block;
     position: relative;
     width: 780px;
     height: 0;
     padding-top: 61.4%;
+    margin: 0 20px;
     background-color: #000;
     @include mq('tab') {
         width: 80vw;
@@ -65,20 +67,19 @@
         width: 84vw;
         margin: 0 6px;
     }
-    &:hover {
-        .item__fig {
-            opacity: .5;
-        }
-    }
-    */
 }
 
-.thum {
+.thumnail {
     position: absolute;
-    object-fit: cover;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
 }
+
 .details {
     box-sizing: border-box;
     position: absolute;
