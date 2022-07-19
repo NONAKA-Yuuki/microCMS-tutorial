@@ -18,6 +18,13 @@ export default function Home({ blog }) {
     arrows: false,
     dots: true,
   };
+
+  // ISO 8601形式で取得した更新日情報を0000年00月00日という形式にフォーマットする
+  const dateFormat = (date) => {
+    var splitDate = date.split('-');
+    const formatDate = splitDate[0] + "年" + splitDate[1] + "月" + splitDate[2].substring(0, splitDate[2].indexOf('T')) + "日";
+    return formatDate;
+  }
   
   return (
     <Layout home>
@@ -25,7 +32,7 @@ export default function Home({ blog }) {
           <div className={styles.body}>
             <div className={styles.container}>
               <Slider {...settings}>
-                {blog.map((blog) => {
+                {blog.slice(0, 5).map((blog) => { // 更新日順に上から5記事取得する
                   return (
                       <article className={styles.item}>
                         <Link href={`/blog/${blog.id}`}>
@@ -34,7 +41,7 @@ export default function Home({ blog }) {
                             <div className={styles.details}>
                               <p class={styles.cat}>カテゴリ名</p>
                               <h2 className={styles.title}>{blog.title}</h2>
-                              <p className={styles.date}>記事更新日</p>
+                              <p className={styles.date}>{ dateFormat(blog.revisedAt) }</p>
                             </div>
                           </a>
                         </Link>
@@ -45,6 +52,7 @@ export default function Home({ blog }) {
             </div>
           </div>
       </div>
+
       <div>
         <ul>
           {blog.map((blog) => (
