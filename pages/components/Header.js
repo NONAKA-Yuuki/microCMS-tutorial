@@ -13,7 +13,7 @@ const Header = () => {
         <header className={styles.header} id="header">
             <div className={styles.header__inner}>
                 <h1 className={styles.title}><Link href="/"><a>17Creative<span>サイトのキャッチコピーだお</span></a></Link></h1>
-                <nav className={styles.nav} id="js-header-menu">
+                <nav className={`${styles.nav} ${openMenu ? styles.open : undefined}`}>
                     <ul className={styles.nav_wrapper}>
                         <li className={styles.nav_item}><Link href="/"><a>WordPress</a></Link></li>
                         <li className={styles.nav_item}><Link href="/"><a>Arduino</a></Link></li>
@@ -23,9 +23,9 @@ const Header = () => {
                     </ul>
                 </nav>
                 <div className={styles.hum} onClick={() => menuFunction()}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span className={openMenu ? styles.open : undefined}></span>
+                    <span className={openMenu ? styles.open : undefined}></span>
+                    <span className={openMenu ? styles.open : undefined}></span>
                 </div>
             </div>
         </header>
