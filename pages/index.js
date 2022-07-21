@@ -22,7 +22,7 @@ export default function Home({ blog }) {
   // ISO 8601形式で取得した更新日情報を0000年00月00日という形式にフォーマットする
   const dateFormat = (date) => {
     var splitDate = date.split('-');
-    const formatDate = splitDate[0] + "年" + splitDate[1] + "月" + splitDate[2].substring(0, splitDate[2].indexOf('T')) + "日";
+    const formatDate = `${splitDate[0]}年${splitDate[1]}月${splitDate[2].substring(0, splitDate[2].indexOf('T'))}日`;
     return formatDate;
   }
   
